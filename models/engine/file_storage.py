@@ -2,6 +2,7 @@
 """
 Contains the FileStorage class
 """
+
 import json
 from models.amenity import Amenity
 from models.base_model import BaseModel
@@ -11,13 +12,13 @@ from models.review import Review
 from models.state import State
 from models.user import User
 
-
 classes = {"Amenity": Amenity, "BaseModel": BaseModel, "City": City,
            "Place": Place, "Review": Review, "State": State, "User": User}
 
 
 class FileStorage:
     """serializes instances to a JSON file & deserializes back to instances"""
+
     __file_path = "file.json"
     __objects = {}
 
@@ -57,7 +58,7 @@ class FileStorage:
             pass
 
     def delete(self, obj=None):
-        """delete obj from __objects if it's inside"""
+        """delete obj from __objects if it’s inside"""
         if obj is not None:
             del self.__objects[obj.__class__.__name__ + '.' + obj.id]
             self.save()
